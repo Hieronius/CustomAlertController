@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DDA5D91C2B8627310049CD0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5D91B2B8627310049CD0D /* AppDelegate.swift */; };
 		DDA5D91E2B8627310049CD0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5D91D2B8627310049CD0D /* SceneDelegate.swift */; };
-		DDA5D9202B8627310049CD0D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5D91F2B8627310049CD0D /* ViewController.swift */; };
+		DDA5D9202B8627310049CD0D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5D91F2B8627310049CD0D /* MainViewController.swift */; };
 		DDA5D9252B8627340049CD0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA5D9242B8627340049CD0D /* Assets.xcassets */; };
 		DDA5D9392B8636DD0049CD0D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5D9382B8636DD0049CD0D /* MainView.swift */; };
 		DDA5D93C2B8641370049CD0D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DDA5D93B2B8641370049CD0D /* SnapKit */; };
@@ -20,7 +20,7 @@
 		DDA5D9182B8627310049CD0D /* CustomAlertController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomAlertController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA5D91B2B8627310049CD0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDA5D91D2B8627310049CD0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DDA5D91F2B8627310049CD0D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DDA5D91F2B8627310049CD0D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DDA5D9242B8627340049CD0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDA5D9292B8627340049CD0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDA5D9382B8636DD0049CD0D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				DDA5D9372B8636B50049CD0D /* View */,
-				DDA5D91F2B8627310049CD0D /* ViewController.swift */,
+				DDA5D91F2B8627310049CD0D /* MainViewController.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -200,7 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDA5D9202B8627310049CD0D /* ViewController.swift in Sources */,
+				DDA5D9202B8627310049CD0D /* MainViewController.swift in Sources */,
 				DDA5D9392B8636DD0049CD0D /* MainView.swift in Sources */,
 				DDA5D93E2B8643810049CD0D /* GenericViewController.swift in Sources */,
 				DDA5D91C2B8627310049CD0D /* AppDelegate.swift in Sources */,
