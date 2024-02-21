@@ -56,15 +56,55 @@
 		DDA5D91A2B8627310049CD0D /* CustomAlertController */ = {
 			isa = PBXGroup;
 			children = (
-				DDA5D91B2B8627310049CD0D /* AppDelegate.swift */,
-				DDA5D91D2B8627310049CD0D /* SceneDelegate.swift */,
-				DDA5D91F2B8627310049CD0D /* ViewController.swift */,
-				DDA5D9212B8627310049CD0D /* Main.storyboard */,
-				DDA5D9242B8627340049CD0D /* Assets.xcassets */,
-				DDA5D9262B8627340049CD0D /* LaunchScreen.storyboard */,
-				DDA5D9292B8627340049CD0D /* Info.plist */,
+				DDA5D92F2B8627F00049CD0D /* App */,
+				DDA5D9302B8628010049CD0D /* Screens */,
+				DDA5D9332B8628570049CD0D /* Custom */,
+				DDA5D9312B8628290049CD0D /* Resources */,
+				DDA5D9322B86283E0049CD0D /* Helpers */,
 			);
 			path = CustomAlertController;
+			sourceTree = "<group>";
+		};
+		DDA5D92F2B8627F00049CD0D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DDA5D91B2B8627310049CD0D /* AppDelegate.swift */,
+				DDA5D91D2B8627310049CD0D /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DDA5D9302B8628010049CD0D /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				DDA5D91F2B8627310049CD0D /* ViewController.swift */,
+				DDA5D9212B8627310049CD0D /* Main.storyboard */,
+				DDA5D9262B8627340049CD0D /* LaunchScreen.storyboard */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		DDA5D9312B8628290049CD0D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DDA5D9242B8627340049CD0D /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DDA5D9322B86283E0049CD0D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DDA5D9292B8627340049CD0D /* Info.plist */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DDA5D9332B8628570049CD0D /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
