@@ -1,17 +1,12 @@
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: GenericViewController<MainView> {
     
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .white
-        print("There is a main screen")
-        
     }
-
-
+    
 }
 

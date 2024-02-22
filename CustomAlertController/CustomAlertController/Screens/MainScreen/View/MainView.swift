@@ -1,19 +1,19 @@
 import UIKit
 import SnapKit
 
-final class MenuView: UIView {
+final class MainView: UIView {
     
-    // MARK: - Private Properties
+    // MARK: - Private properties
     
-    private weak var alertButton: UIButton?
+    private var alertButton: UIButton!
     // private weak var customAlertController:
     
     // MARK: - Initialization
     
     init() {
         super.init(frame: .zero)
-        print("View is on the screen")
-        alertButton = getAlertButton()
+        self.backgroundColor = .white
+        getAlertButton()
         // setupCustomAlertController()
     }
     
@@ -21,14 +21,14 @@ final class MenuView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Private Methods
-    
-    private func getAlertButton() -> UIButton {
-        let button = UIButton()
-        button.setTitle("Get Alert Controller", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .black
-        button.titleLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+    private func getAlertButton(){
+        let alertButton = UIButton()
+        alertButton.setTitle("Get Alert Controller", for: .normal)
+        alertButton.setTitleColor(.white, for: .normal)
+        alertButton.backgroundColor = .black
+        alertButton.titleLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+        
+        self.addSubview(alertButton)
         
         // get size of the screen dynamically
         guard let window = UIApplication.shared.windows.first else {
@@ -38,17 +38,21 @@ final class MenuView: UIView {
         let screenWidth = window.bounds.width
         let screenHeight = window.bounds.height
         
-        let buttonWidth = screenWidth / 5
-        let buttonHeight = screenHeight / 5
+        let buttonWidth = screenWidth / 2
+        let buttonHeight = screenHeight / 10
         
-        button.snp.makeConstraints { make in
+        let screenCenterX = window.bounds.midX
+        let screenCenterY = window.bounds.midY
+        
+        alertButton.layer.cornerRadius = buttonHeight / 2
+        
+        alertButton.snp.makeConstraints { make in
             make.width.equalTo(buttonWidth)
             make.height.equalTo(buttonHeight)
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
+            make.centerX.equalTo(screenCenterX)
+            make.centerY.equalTo(screenCenterY)
+            
         }
-        print("correct button")
-        return button
     }
     
     private func setupCustomAlertController() {
