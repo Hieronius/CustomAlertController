@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD1985972B87067500D54DD9 /* CustomDeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1985962B87067500D54DD9 /* CustomDeleteButton.swift */; };
 		DDA5D91C2B8627310049CD0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5D91B2B8627310049CD0D /* AppDelegate.swift */; };
 		DDA5D91E2B8627310049CD0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5D91D2B8627310049CD0D /* SceneDelegate.swift */; };
 		DDA5D9202B8627310049CD0D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5D91F2B8627310049CD0D /* MainViewController.swift */; };
@@ -14,9 +15,11 @@
 		DDA5D9392B8636DD0049CD0D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5D9382B8636DD0049CD0D /* MainView.swift */; };
 		DDA5D93C2B8641370049CD0D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DDA5D93B2B8641370049CD0D /* SnapKit */; };
 		DDA5D93E2B8643810049CD0D /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5D93D2B8643810049CD0D /* GenericViewController.swift */; };
+		DDB7BF662B86E6F7009CF825 /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB7BF652B86E6F7009CF825 /* CustomAlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD1985962B87067500D54DD9 /* CustomDeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDeleteButton.swift; sourceTree = "<group>"; };
 		DDA5D9182B8627310049CD0D /* CustomAlertController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomAlertController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA5D91B2B8627310049CD0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDA5D91D2B8627310049CD0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,6 +28,7 @@
 		DDA5D9292B8627340049CD0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDA5D9382B8636DD0049CD0D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DDA5D93D2B8643810049CD0D /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
+		DDB7BF652B86E6F7009CF825 /* CustomAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				DDA5D93D2B8643810049CD0D /* GenericViewController.swift */,
+				DDB7BF652B86E6F7009CF825 /* CustomAlertController.swift */,
+				DD1985962B87067500D54DD9 /* CustomDeleteButton.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -202,7 +208,9 @@
 			files = (
 				DDA5D9202B8627310049CD0D /* MainViewController.swift in Sources */,
 				DDA5D9392B8636DD0049CD0D /* MainView.swift in Sources */,
+				DD1985972B87067500D54DD9 /* CustomDeleteButton.swift in Sources */,
 				DDA5D93E2B8643810049CD0D /* GenericViewController.swift in Sources */,
+				DDB7BF662B86E6F7009CF825 /* CustomAlertController.swift in Sources */,
 				DDA5D91C2B8627310049CD0D /* AppDelegate.swift in Sources */,
 				DDA5D91E2B8627310049CD0D /* SceneDelegate.swift in Sources */,
 			);
