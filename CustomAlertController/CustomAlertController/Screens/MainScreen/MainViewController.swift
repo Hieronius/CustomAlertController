@@ -54,5 +54,19 @@ class MainViewController: GenericViewController<MainView>, MainViewDelegate, Cus
         }
     }
     
+    func mainViewDidTapCustomDeleteButton() {
+        
+        print("delete button from main VC has been pressed")
+        rootView.customAlertController.cancelButton.isEnabled = false
+        rootView.customAlertController.deleteButton.isEnabled = false
+        rootView.customAlertController.deleteButton.setTitleColor(.gray, for: .normal)
+        
+        
+        rootView.customAlertController.deleteButton.activityIndicator.startAnimating()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { self.rootView.customAlertController.activityIndicator.stopAnimating()
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
 }
 
