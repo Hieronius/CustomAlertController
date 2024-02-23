@@ -15,13 +15,15 @@ final class CustomAlertController: UIViewController {
     let titleLabel = UILabel()
     let messageLabel = UILabel()
     let cancelButton = UIButton()
-    var deleteButton = CustomDeleteButton(title: "Удалить")
+    var deleteButton: CustomDeleteButton!
+    
     let activityIndicator = UIActivityIndicatorView(style: .medium)
     
     // MARK: - Initializers
     
-    init() {
+    init(deleteButton: CustomDeleteButton) {
         super.init(nibName: nil, bundle: nil)
+        self.deleteButton = deleteButton
         modalPresentationStyle = .overCurrentContext
         modalTransitionStyle = .crossDissolve
     }
