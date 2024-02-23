@@ -7,11 +7,15 @@ class CustomDeleteButton: UIButton {
     
     lazy var activityIndicator = UIActivityIndicatorView(style: .medium)
     let customTitleLabel = UILabel()
+    var targetObject: Any?
+    var actionSelector: Selector?
     
     // MARK: - Initialization
 
-    init(title: String) {
+    init(title: String, targetObject: Any?, actionSelector: Selector) {
         super.init(frame: .zero)
+        self.targetObject = targetObject
+        self.actionSelector = actionSelector
         configureLayout()
         customTitleLabel.text = title
         customTitleLabel.textColor = .red
@@ -41,7 +45,7 @@ class CustomDeleteButton: UIButton {
         }
         
         // Add a tap gesture recognizer to the deleteButton
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(deleteButtonTapped))
+        let tapGesture = UITapGestureRecognizer(target: targetObject, action: actionSelector)
         addGestureRecognizer(tapGesture)
         isUserInteractionEnabled = true
         
