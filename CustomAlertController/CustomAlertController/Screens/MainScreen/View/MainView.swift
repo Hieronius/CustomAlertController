@@ -4,6 +4,7 @@ import SnapKit
 protocol MainViewDelegate: AnyObject {
     func mainViewDidTapAlertButton()
     func mainViewDidTapTestAlertButton()
+    func mainViewDidTapCustomDeleteButton()
 }
 
 final class MainView: UIView {
@@ -15,6 +16,7 @@ final class MainView: UIView {
     var testAlertButton: UIButton!
     
     var alertButton: UIButton!
+    
     var customAlertController: CustomAlertController!
     
     // MARK: - Initialization
@@ -104,7 +106,7 @@ final class MainView: UIView {
     }
     
     private func setupCustomAlertController() {
-        customAlertController = CustomAlertController()
+        customAlertController = CustomAlertController(deleteButton: CustomDeleteButton(title: "Удалить", targetObject: self, actionSelector: #selector(customDeleteButtonTapped)))
         
         self.addSubview(customAlertController.view)
         
@@ -130,5 +132,10 @@ final class MainView: UIView {
     
     @objc func testAlertButtonTapped() {
         delegate?.mainViewDidTapTestAlertButton()
+    }
+    
+    @objc func customDeleteButtonTapped() {
+        delegate?.mainViewDidTapCustomDeleteButton()
+        print("Delete button from main view has been pressed")
     }
 }
