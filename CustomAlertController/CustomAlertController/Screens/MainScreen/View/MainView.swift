@@ -14,7 +14,7 @@ final class MainView: UIView {
         super.init(frame: .zero)
         self.backgroundColor = .white
         getAlertButton()
-        // setupCustomAlertController()
+        setupCustomAlertController()
     }
     
     required init(coder: NSCoder) {
@@ -56,6 +56,23 @@ final class MainView: UIView {
     }
     
     private func setupCustomAlertController() {
+        customAlertController = CustomAlertController()
         
+        self.addSubview(customAlertController.view)
+        
+        // get size of the screen dynamically
+        guard let window = UIApplication.shared.windows.first else {
+            fatalError("No window found")
+        }
+        
+        let screenCenterX = window.bounds.midX
+        let screenCenterY = window.bounds.midY
+        
+        customAlertController.view.snp.makeConstraints { make in
+            make.centerX.equalTo(screenCenterX)
+            make.centerY.equalTo(screenCenterY)
+        }
+        
+        customAlertController.view.isHidden = true
     }
 }
