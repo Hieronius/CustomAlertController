@@ -1,15 +1,22 @@
 import UIKit
 import SnapKit
 
+protocol CustomAlertControllerDelegate: AnyObject {
+    func customAlertDidTapCancelButton()
+    func customAlertDidTapDeleteButton()
+}
+
 final class CustomAlertController: UIViewController {
     
-    // MARK: - Private Properties
+    // MARK: - Public Properties
     
-    private let titleLabel = UILabel()
-    private let messageLabel = UILabel()
-    private let cancelButton = UIButton()
-    private let deleteButton = CustomDeleteButton(type: .system)
-    private let activityIndicator = UIActivityIndicatorView(style: .medium)
+    weak var delegate: CustomAlertControllerDelegate?
+    
+    let titleLabel = UILabel()
+    let messageLabel = UILabel()
+    let cancelButton = UIButton()
+    var deleteButton = CustomDeleteButton(title: "Удалить")
+    let activityIndicator = UIActivityIndicatorView(style: .medium)
     
     // MARK: - Initializers
     
@@ -30,17 +37,19 @@ final class CustomAlertController: UIViewController {
         setupViews()
     }
     
-    private func setupViews() {
-        view.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        setupTitleLable()
+    
+    
+    func setupViews() {
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+         setupTitleLable()
         setupMessageLabel()
         setupCancelButton()
-        setupDeleteButton()
-        setupActivityIndicator()
+         setupDeleteButton()
+          setupActivityIndicator()
     }
     
     
-    private func setupTitleLable() {
+    func setupTitleLable() {
         titleLabel.text = "Удалить папку \"Непрочитанные\"?"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.textColor = .black
@@ -54,7 +63,7 @@ final class CustomAlertController: UIViewController {
         }
     }
     
-    private func setupMessageLabel() {
+    func setupMessageLabel() {
         messageLabel.text = "Это не затронет чаты, которые в ней находятся"
         messageLabel.font = UIFont.systemFont(ofSize: 14)
         messageLabel.textColor = .black
@@ -70,11 +79,9 @@ final class CustomAlertController: UIViewController {
         }
     }
     
-    private func setupCancelButton() {
+    func setupCancelButton() {
         cancelButton.setTitle("Отменить", for: .normal)
         cancelButton.setTitleColor(.darkGray, for: .normal)
-        
-        cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         
         view.addSubview(cancelButton)
         
@@ -85,14 +92,13 @@ final class CustomAlertController: UIViewController {
             make.width.equalTo(100)
             make.height.equalTo(40)
         }
+        
+        cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
     }
     
-    private func setupDeleteButton() {
-        deleteButton.setTitle("Удалить", for: .normal)
+    func setupDeleteButton() {
+        deleteButton.titleLabel?.text = "Удалить"
         deleteButton.setTitleColor(.red, for: .normal)
-        
-        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
-        
         view.addSubview(deleteButton)
         
         deleteButton.snp.makeConstraints { make in
@@ -102,31 +108,28 @@ final class CustomAlertController: UIViewController {
             make.width.equalTo(100)
             make.height.equalTo(40)
         }
+        
+        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
     }
     
-    private func setupActivityIndicator() {
+    func setupActivityIndicator() {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.color = .gray
+        
         deleteButton.addSubview(activityIndicator)
         
         activityIndicator.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(10)
         }
     }
     
-    @objc private func cancelButtonTapped() {
-        dismiss(animated: true, completion: nil)
+    @objc func cancelButtonTapped() {
+        delegate?.customAlertDidTapCancelButton()
     }
     
-    @objc private func deleteButtonTapped() {
-        cancelButton.isEnabled = false
-        deleteButton.isEnabled = false
-        deleteButton.setTitleColor(.gray, for: .normal)
-        
-        activityIndicator.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { self.activityIndicator.stopAnimating()
-            self.dismiss(animated: true, completion: nil)
-        }
+    @objc func deleteButtonTapped() {
+        delegate?.customAlertDidTapDeleteButton()
+        print("delete button from custom alert has been pressed")
     }
 }
+
