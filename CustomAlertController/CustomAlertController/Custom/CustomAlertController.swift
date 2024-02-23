@@ -45,6 +45,7 @@ final class CustomAlertController: UIViewController {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.textColor = .black
         titleLabel.textAlignment = .center
+        
         view.addSubview(titleLabel)
         
         titleLabel.snp.makeConstraints { make in
@@ -59,6 +60,7 @@ final class CustomAlertController: UIViewController {
         messageLabel.textColor = .black
         messageLabel.textAlignment = .center
         messageLabel.numberOfLines = 0
+        
         view.addSubview(messageLabel)
         
         messageLabel.snp.makeConstraints { make in
@@ -71,7 +73,9 @@ final class CustomAlertController: UIViewController {
     private func setupCancelButton() {
         cancelButton.setTitle("Отменить", for: .normal)
         cancelButton.setTitleColor(.darkGray, for: .normal)
+        
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
+        
         view.addSubview(cancelButton)
         
         cancelButton.snp.makeConstraints { make in
@@ -86,7 +90,9 @@ final class CustomAlertController: UIViewController {
     private func setupDeleteButton() {
         deleteButton.setTitle("Удалить", for: .normal)
         deleteButton.setTitleColor(.red, for: .normal)
+        
         deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
+        
         view.addSubview(deleteButton)
         
         deleteButton.snp.makeConstraints { make in
