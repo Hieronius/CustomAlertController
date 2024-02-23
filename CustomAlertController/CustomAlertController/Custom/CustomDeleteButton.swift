@@ -2,41 +2,55 @@ import UIKit
 import SnapKit
 
 class CustomDeleteButton: UIButton {
-    private lazy var activityIndicator = UIActivityIndicatorView(style: .medium)
+    
+    // MARK: - Public Properties
+    
+    lazy var activityIndicator = UIActivityIndicatorView(style: .medium)
+    let customTitleLabel = UILabel()
+    
+    // MARK: - Initialization
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(title: String) {
+        super.init(frame: .zero)
         configureLayout()
+        customTitleLabel.text = title
+        customTitleLabel.textColor = .red
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Methods
 
-    private func configureLayout() {
+    func configureLayout() {
         let spacer = UIView()
         spacer.setContentHuggingPriority(.defaultLow, for: .horizontal)
         spacer.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
-        let stackView = UIStackView(arrangedSubviews: [activityIndicator, spacer, titleLabel!])
+         let stackView = UIStackView(arrangedSubviews: [activityIndicator, spacer, customTitleLabel])
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
         addSubview(stackView)
         
         stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        // Add a tap gesture recognizer to the deleteButton
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(deleteButtonTapped))
+        addGestureRecognizer(tapGesture)
+        isUserInteractionEnabled = true
+        
     }
     
-    // @objc private func deleteButtonTapped() {
-        // Rest of the method remains unchanged
-
-//        deleteButton.activityIndicator.startAnimating()
-//        UIView.animate(withDuration: 0.2) {
-//            self.deleteButton.layoutIfNeeded()
-//        }
-//    }
+    @objc func deleteButtonTapped() {
+            // Handle the delete button tap event
+            print("Delete button tapped")
+        }
+    
 }
 
