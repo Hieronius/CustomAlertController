@@ -5,8 +5,8 @@ final class MainView: UIView {
     
     // MARK: - Private properties
     
-    private var alertButton: UIButton!
-    private weak var customAlertController: CustomAlertController!
+    var alertButton: UIButton!
+    var customAlertController: CustomAlertController!
     
     // MARK: - Initialization
     
@@ -21,8 +21,8 @@ final class MainView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func getAlertButton() {
-        let alertButton = UIButton()
+    func getAlertButton() {
+        alertButton = UIButton()
         alertButton.setTitle("Get Alert Controller", for: .normal)
         alertButton.setTitleColor(.white, for: .normal)
         alertButton.backgroundColor = .black
