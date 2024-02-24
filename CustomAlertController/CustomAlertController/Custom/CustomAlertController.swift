@@ -35,8 +35,6 @@ final class CustomAlertController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        setupAlertControllerSize()
         setupViews()
         
     }
@@ -147,6 +145,7 @@ final class CustomAlertController: UIViewController {
     
     func setupDeleteButton() {
         deleteButton.titleLabel?.text = "Удалить"
+        deleteButton.setTitleColor(.green, for: .normal)
         view.addSubview(deleteButton)
         
         deleteButton.snp.makeConstraints { make in
@@ -165,7 +164,9 @@ final class CustomAlertController: UIViewController {
         deleteButton.addSubview(activityIndicator)
         
         activityIndicator.snp.makeConstraints { make in
-             make.centerX.equalToSuperview()
+             // make.centerX.equalToSuperview()
+            make.leading.equalTo(cancelButton.snp.trailing).offset(1)
+            
         }
     }
     
