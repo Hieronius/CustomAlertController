@@ -13,7 +13,8 @@ class MainViewController: GenericViewController<MainView>, MainViewDelegate, Cus
     
     func mainViewDidTapAlertButton() {
         rootView.presentCustomAlert()
-        rootView.alertButton.isHidden = false
+        rootView.alertButton.isHidden = true
+        rootView.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         print("Alert controller has been presented")
         
         rootView.customAlertController.delegate = self
@@ -25,8 +26,9 @@ class MainViewController: GenericViewController<MainView>, MainViewDelegate, Cus
     }
     
     func customAlertDidTapCancelButton() {
-        self.rootView.alertButton.isHidden = false
-        self.rootView.isCustomAlertVisible = false
+        rootView.alertButton.isHidden = false
+        rootView.isCustomAlertVisible = false
+        rootView.backgroundColor = .white
         dismiss(animated: true) {
             self.rootView.customAlertController.view.removeFromSuperview()
         }

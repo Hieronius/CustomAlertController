@@ -65,7 +65,7 @@ final class CustomAlertController: UIViewController {
     
     // Remove code from initialization and call this func instead
     func setupAlertControllerAppearance() {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         view.layer.cornerRadius = 13
         view.layer.masksToBounds = true
     }
