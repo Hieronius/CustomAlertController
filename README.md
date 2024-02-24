@@ -12,7 +12,6 @@ When delete button was pressed the buttons on alert screen should be disabled an
 # ToDo
 - Implement both white and black thems to the app
 - Implement an original view of default alert controller
-- Implement smooth animation when alert controller should be called and dismissed
 - Implement custom activity indicator
 - Place delegation methods of cancel button from custom alert controller to Main View file
 
