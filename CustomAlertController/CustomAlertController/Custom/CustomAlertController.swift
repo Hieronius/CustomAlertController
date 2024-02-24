@@ -16,9 +16,8 @@ final class CustomAlertController: UIViewController {
     let cancelButton = UIButton()
     let verticalSeparatorLine = UIView()
     let horizontalSeparatorLine = UIView()
-    var deleteButton: CustomDeleteButton!
-    
     let activityIndicator = UIActivityIndicatorView(style: .medium)
+    var deleteButton: CustomDeleteButton!
     
     // MARK: - Initializers
     
@@ -41,9 +40,9 @@ final class CustomAlertController: UIViewController {
         
     }
     
-    // MARK: - Public Methods
+    // MARK: - Private Methods
     
-    func setupViews() {
+    private func setupViews() {
         setupAlertController()
         setupTitleLable()
         setupMessageLabel()
@@ -51,10 +50,9 @@ final class CustomAlertController: UIViewController {
         setupCancelButton()
         setupVerticalSeparatorLine()
         setupDeleteButton()
-        // setupActivityIndicator()
     }
     
-    func setupAlertController() {
+    private func setupAlertController() {
         let screenWidth = UIScreen.main.bounds.width
         let alertWidth = screenWidth - 40
         let alertHeight = 200
@@ -66,7 +64,7 @@ final class CustomAlertController: UIViewController {
         view.layer.masksToBounds = true
     }
     
-    func setupTitleLable() {
+    private func setupTitleLable() {
         titleLabel.text = "Удалить папку \"Непрочитанные\"?"
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.textColor = .black
@@ -81,7 +79,7 @@ final class CustomAlertController: UIViewController {
         }
     }
     
-    func setupMessageLabel() {
+    private func setupMessageLabel() {
         messageLabel.text = "Это не затронет чаты, которые в ней находятся"
         messageLabel.font = UIFont.systemFont(ofSize: 14)
         messageLabel.textColor = .gray
@@ -97,7 +95,7 @@ final class CustomAlertController: UIViewController {
         }
     }
     
-    func setupHorizontalSeparatorLine() {
+    private func setupHorizontalSeparatorLine() {
         horizontalSeparatorLine.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         
         view.addSubview(horizontalSeparatorLine)
@@ -109,7 +107,7 @@ final class CustomAlertController: UIViewController {
         }
     }
     
-    func setupCancelButton() {
+    private func setupCancelButton() {
         let attributedString = NSAttributedString(string: "Отменить", attributes: [
             NSAttributedString.Key.foregroundColor: UIColor.black,
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)
@@ -129,7 +127,7 @@ final class CustomAlertController: UIViewController {
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
     }
     
-    func setupVerticalSeparatorLine() {
+    private func setupVerticalSeparatorLine() {
         verticalSeparatorLine.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         
         view.addSubview(verticalSeparatorLine)
@@ -143,7 +141,7 @@ final class CustomAlertController: UIViewController {
         
     }
     
-    func setupDeleteButton() {
+    private func setupDeleteButton() {
         deleteButton.titleLabel?.text = "Удалить"
         view.addSubview(deleteButton)
         
@@ -164,21 +162,12 @@ final class CustomAlertController: UIViewController {
         deleteButton.activityIndicator.snp.makeConstraints { make in
             make.trailing.equalTo(deleteButton.customTitleLabel.snp.leading).offset(-10)
         }
-
-    }
-    
-    func setupActivityIndicator() {
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.color = .gray
-        deleteButton.activityIndicator.backgroundColor = .red
-        
-        // deleteButton.activityIndicator
         
     }
     
     // MARK: - Actions
     
-    @objc func cancelButtonTapped() {
+    @objc private func cancelButtonTapped() {
         delegate?.customAlertDidTapCancelButton()
     }
     

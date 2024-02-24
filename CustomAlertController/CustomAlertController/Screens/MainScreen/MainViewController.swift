@@ -21,10 +21,6 @@ class MainViewController: GenericViewController<MainView>, MainViewDelegate, Cus
         present(rootView.customAlertController, animated: true)
     }
     
-    func mainViewDidTapTestAlertButton() {
-        showAlert(title: "Test Alert", message: "Message")
-    }
-    
     func customAlertDidTapCancelButton() {
         rootView.alertButton.isHidden = false
         rootView.isCustomAlertVisible = false
