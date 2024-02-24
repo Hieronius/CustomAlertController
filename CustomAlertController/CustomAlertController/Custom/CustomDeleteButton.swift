@@ -5,7 +5,7 @@ class CustomDeleteButton: UIButton {
     
     // MARK: - Public Properties
     
-    lazy var activityIndicator = UIActivityIndicatorView(style: .medium)
+    var activityIndicator = UIActivityIndicatorView(style: .medium)
     
     let customTitleLabel = UILabel()
     var targetObject: Any?
@@ -30,21 +30,21 @@ class CustomDeleteButton: UIButton {
     // MARK: - Public Methods
     
     func configureLayout() {
-        let spacer = UIView()
-        spacer.setContentHuggingPriority(.defaultLow, for: .horizontal)
-        spacer.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-        
-        let stackView = UIStackView(arrangedSubviews: [activityIndicator, spacer, customTitleLabel])
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fillEqually
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        
+    
+        let stackView = UIStackView(arrangedSubviews: [activityIndicator, customTitleLabel])
+           stackView.axis = .horizontal
+            stackView.spacing = 20
         addSubview(stackView)
         
         stackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        make.center.equalToSuperview() // Center the stack view within the button
+            
+        make.leading.equalTo(customTitleLabel.snp.leading) // Align the leading edge of the stack view with the custom title label
+    }
+        
+         // activityIndicator.startAnimating()
+        
+        
         
         // Add a tap gesture recognizer to the deleteButton
         let tapGesture = UITapGestureRecognizer(target: targetObject, action: actionSelector)
