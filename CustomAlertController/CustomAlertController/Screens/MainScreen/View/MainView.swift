@@ -28,7 +28,7 @@ final class MainView: UIView {
         self.backgroundColor = .white
         getTestAlertButton()
         getAlertButton()
-        customAlertController = CustomAlertController(deleteButton: CustomDeleteButton(title: "Удалить", targetObject: self, actionSelector: #selector(customDeleteButtonTapped)))
+        customAlertController = CustomAlertController(deleteButton: CustomDeleteButton(title: "    Удалить", targetObject: self, actionSelector: #selector(customDeleteButtonTapped)))
          presentCustomAlert()
     }
     
@@ -105,7 +105,6 @@ final class MainView: UIView {
         
         self.addSubview(alertButton)
         
-        // get size of the screen dynamically
         guard let window = UIApplication.shared.windows.first else {
             fatalError("No window found")
         }

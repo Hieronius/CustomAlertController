@@ -14,6 +14,8 @@ final class CustomAlertController: UIViewController {
     let titleLabel = UILabel()
     let messageLabel = UILabel()
     let cancelButton = UIButton()
+    let verticalSeparatorLine = UIView()
+    let horizontalSeparatorLine = UIView()
     var deleteButton: CustomDeleteButton!
     
     let activityIndicator = UIActivityIndicatorView(style: .medium)
@@ -35,8 +37,6 @@ final class CustomAlertController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupAlertControllerSize()
         setupViews()
         
     }
@@ -44,28 +44,24 @@ final class CustomAlertController: UIViewController {
     // MARK: - Public Methods
     
     func setupViews() {
-        setupAlertControllerAppearance()
+        setupAlertController()
         setupTitleLable()
         setupMessageLabel()
         setupHorizontalSeparatorLine()
         setupCancelButton()
         setupVerticalSeparatorLine()
         setupDeleteButton()
-        setupActivityIndicator()
+        // setupActivityIndicator()
     }
     
-    // Remove code from initialization and call this func instead
-    func setupAlertControllerSize() {
+    func setupAlertController() {
         let screenWidth = UIScreen.main.bounds.width
         let alertWidth = screenWidth - 40
         let alertHeight = 200
         
         view.frame = CGRect(x: 20, y: (Int(UIScreen.main.bounds.height) - alertHeight) / 2, width: Int(alertWidth), height: alertHeight)
-    }
-    
-    // Remove code from initialization and call this func instead
-    func setupAlertControllerAppearance() {
-        view.backgroundColor = .white
+        
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         view.layer.cornerRadius = 13
         view.layer.masksToBounds = true
     }
@@ -75,7 +71,7 @@ final class CustomAlertController: UIViewController {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.textColor = .black
         titleLabel.textAlignment = .center
-        titleLabel.numberOfLines = 2
+        titleLabel.numberOfLines = 1
         
         view.addSubview(titleLabel)
         
@@ -102,12 +98,11 @@ final class CustomAlertController: UIViewController {
     }
     
     func setupHorizontalSeparatorLine() {
-        let separatorLine = UIView()
-        separatorLine.backgroundColor = .lightGray
+        horizontalSeparatorLine.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         
-        view.addSubview(separatorLine)
+        view.addSubview(horizontalSeparatorLine)
         
-        separatorLine.snp.makeConstraints { make in
+        horizontalSeparatorLine.snp.makeConstraints { make in
             make.top.equalTo(messageLabel.snp.bottom).offset(10)
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(1)
@@ -117,7 +112,7 @@ final class CustomAlertController: UIViewController {
     func setupCancelButton() {
         let attributedString = NSAttributedString(string: "Отменить", attributes: [
             NSAttributedString.Key.foregroundColor: UIColor.black,
-            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17) // Change the font size as needed
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)
         ])
         cancelButton.setAttributedTitle(attributedString, for: .normal)
         
@@ -125,52 +120,60 @@ final class CustomAlertController: UIViewController {
         
         cancelButton.snp.makeConstraints { make in
             make.top.equalTo(messageLabel.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.bottom.equalToSuperview().offset(-20)
-            make.width.equalTo(100)
-            make.height.equalTo(40)
+            make.leading.equalToSuperview().offset(10)
+            make.bottom.equalToSuperview().offset(-10)
+            make.width.equalTo(130)
+            make.height.equalTo(30)
         }
         
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
     }
     
     func setupVerticalSeparatorLine() {
-        let separatorLine = UIView()
-        separatorLine.backgroundColor = .lightGray
+        verticalSeparatorLine.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         
-        view.addSubview(separatorLine)
+        view.addSubview(verticalSeparatorLine)
         
-        separatorLine.snp.makeConstraints { make in
-            make.top.equalTo(cancelButton.snp.top)
-            make.bottom.equalTo(cancelButton.snp.bottom)
+        verticalSeparatorLine.snp.makeConstraints { make in
+            make.top.equalTo(cancelButton.snp.top).offset(-10)
+            make.bottom.equalTo(cancelButton.snp.bottom).offset(10)
             make.leading.equalTo(cancelButton.snp.trailing)
             make.width.equalTo(1)
         }
+        
     }
     
     func setupDeleteButton() {
         deleteButton.titleLabel?.text = "Удалить"
-        deleteButton.setTitleColor(.red, for: .normal)
         view.addSubview(deleteButton)
         
         deleteButton.snp.makeConstraints { make in
-            make.top.equalTo(messageLabel.snp.bottom).offset(20)
+            
+            make.top.equalTo(cancelButton.snp.top)
             make.trailing.equalToSuperview().offset(-20)
-            make.bottom.equalToSuperview().offset(-20)
-            make.width.equalTo(150)
-            make.height.equalTo(40)
+            make.leading.equalTo(verticalSeparatorLine).offset(20)
+            make.bottom.equalToSuperview().offset(-10)
+            make.width.equalTo(130)
+            make.height.equalTo(30)
         }
+        
+        deleteButton.customTitleLabel.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().offset(-20)
+        }
+        
+        deleteButton.activityIndicator.snp.makeConstraints { make in
+            make.trailing.equalTo(deleteButton.customTitleLabel.snp.leading).offset(-10)
+        }
+
     }
     
     func setupActivityIndicator() {
         activityIndicator.hidesWhenStopped = true
         activityIndicator.color = .gray
+        deleteButton.activityIndicator.backgroundColor = .red
         
-        deleteButton.addSubview(activityIndicator)
+        // deleteButton.activityIndicator
         
-        activityIndicator.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-        }
     }
     
     // MARK: - Actions
