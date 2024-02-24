@@ -1,7 +1,7 @@
 import UIKit
 import SnapKit
 
-class CustomDeleteButton: UIButton {
+final class CustomDeleteButton: UIButton {
     
     // MARK: - Public Properties
     
@@ -27,19 +27,19 @@ class CustomDeleteButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Public Methods
+    // MARK: - Private Methods
     
-    func configureLayout() {
-    
+    private func configureLayout() {
+        
         let stackView = UIStackView(arrangedSubviews: [activityIndicator, customTitleLabel])
-           stackView.axis = .horizontal
-            stackView.spacing = 20
+        stackView.axis = .horizontal
+        stackView.spacing = 20
         addSubview(stackView)
         
         stackView.snp.makeConstraints { make in
-        make.center.equalToSuperview()
-        make.leading.equalTo(customTitleLabel.snp.leading)
-    }
+            make.center.equalToSuperview()
+            make.leading.equalTo(customTitleLabel.snp.leading)
+        }
         
         let tapGesture = UITapGestureRecognizer(target: targetObject, action: actionSelector)
         addGestureRecognizer(tapGesture)
