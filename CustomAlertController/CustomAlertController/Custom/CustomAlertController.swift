@@ -3,7 +3,6 @@ import SnapKit
 
 protocol CustomAlertControllerDelegate: AnyObject {
     func customAlertDidTapCancelButton()
-    func customAlertDidTapDeleteButton()
 }
 
 final class CustomAlertController: UIViewController {
@@ -110,8 +109,6 @@ final class CustomAlertController: UIViewController {
             make.width.equalTo(100)
             make.height.equalTo(40)
         }
-        
-        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
     }
     
     func setupActivityIndicator() {
@@ -129,9 +126,5 @@ final class CustomAlertController: UIViewController {
         delegate?.customAlertDidTapCancelButton()
     }
     
-    @objc func deleteButtonTapped() {
-        delegate?.customAlertDidTapDeleteButton()
-        print("delete button from custom alert has been pressed")
-    }
 }
 
