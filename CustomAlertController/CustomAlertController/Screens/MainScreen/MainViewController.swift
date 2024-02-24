@@ -12,11 +12,12 @@ class MainViewController: GenericViewController<MainView>, MainViewDelegate, Cus
     // MARK: - Public Methods
     
     func mainViewDidTapAlertButton() {
-        present(rootView.customAlertController, animated: true, completion: nil)
+        rootView.presentCustomAlert()
+        rootView.alertButton.isHidden = false
         print("Alert controller has been presented")
         
         rootView.customAlertController.delegate = self
-        rootView.alertButton.isHidden = true
+        present(rootView.customAlertController, animated: true)
     }
     
     func mainViewDidTapTestAlertButton() {
@@ -24,28 +25,20 @@ class MainViewController: GenericViewController<MainView>, MainViewDelegate, Cus
     }
     
     func customAlertDidTapCancelButton() {
-         rootView.alertButton.isHidden = false
-        print("cancel button has been pressed")
-        
-        dismiss(animated: true, completion: nil)
-        
-        // implement smooth animation of customAlert
-        // Probably should fix constraints
-        // dismiss(animated: true, completion: nil)
+        self.rootView.alertButton.isHidden = false
+        self.rootView.isCustomAlertVisible = false
+        dismiss(animated: true) {
+            self.rootView.customAlertController.view.removeFromSuperview()
+        }
     }
     
     func mainViewDidTapCustomDeleteButton() {
-        
-        print("delete button from main VC has been pressed")
         rootView.customAlertController.cancelButton.isEnabled = false
         rootView.customAlertController.deleteButton.isEnabled = false
         rootView.customAlertController.deleteButton.setTitleColor(.gray, for: .normal)
         
         
         rootView.customAlertController.deleteButton.activityIndicator.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { self.rootView.customAlertController.activityIndicator.stopAnimating()
-            self.dismiss(animated: true, completion: nil)
-        }
     }
     
 }
