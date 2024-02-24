@@ -56,7 +56,9 @@ final class MainView: UIView {
         }
     }
     
-    func getAlertButton() {
+    // MARK: - Private Methods
+    
+    private func getAlertButton() {
         alertButton = UIButton()
         alertButton.setTitle("Get Alert Controller", for: .normal)
         alertButton.setTitleColor(.white, for: .normal)
@@ -93,11 +95,11 @@ final class MainView: UIView {
     
     // MARK: - Actions
     
-    @objc func alertButtonTapped() {
+    @objc private func alertButtonTapped() {
         delegate?.mainViewDidTapAlertButton()
     }
     
-    @objc func customDeleteButtonTapped() {
+    @objc private func customDeleteButtonTapped() {
         delegate?.mainViewDidTapCustomDeleteButton()
     }
 }
