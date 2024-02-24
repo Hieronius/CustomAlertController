@@ -24,9 +24,9 @@ final class MainView: UIView {
     init() {
         super.init(frame: .zero)
         self.backgroundColor = .white
-         getTestAlertButton()
-         getAlertButton()
-         setupCustomAlertController()
+        getTestAlertButton()
+        getAlertButton()
+        setupCustomAlertController()
     }
     
     required init(coder: NSCoder) {
