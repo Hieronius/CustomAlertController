@@ -7,15 +7,18 @@ class MainViewController: GenericViewController<MainView>, MainViewDelegate, Cus
     override func viewDidLoad() {
         super.viewDidLoad()
         rootView.delegate = self
-        rootView.customAlertController.delegate = self
     }
     
     // MARK: - Public Methods
     
     func mainViewDidTapAlertButton() {
-        rootView.customAlertController.view.isHidden = false
-        rootView.alertButton.isHidden = true
-        print("Button has been tapped")
+        
+        rootView.isCustomAlertVisible = true
+        present(rootView.customAlertController, animated: true, completion: nil)
+        print("Alert controller has been presented")
+        
+        rootView.customAlertController.delegate = self
+         rootView.alertButton.isHidden = true
         
         // implement smooth animation of customAlert
         // Probably should fix constraints
@@ -27,9 +30,11 @@ class MainViewController: GenericViewController<MainView>, MainViewDelegate, Cus
     }
     
     func customAlertDidTapCancelButton() {
-        rootView.alertButton.isHidden = false
-        rootView.customAlertController.view.isHidden = true
+         rootView.alertButton.isHidden = false
+        // rootView.customAlertController.view.isHidden = true
         print("cancel button has been pressed")
+        
+        dismiss(animated: true, completion: nil)
         
         // implement smooth animation of customAlert
         // Probably should fix constraints
