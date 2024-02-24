@@ -105,7 +105,6 @@ final class MainView: UIView {
         
         self.addSubview(alertButton)
         
-        // get size of the screen dynamically
         guard let window = UIApplication.shared.windows.first else {
             fatalError("No window found")
         }
