@@ -75,7 +75,7 @@ final class CustomAlertController: UIViewController {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.textColor = .black
         titleLabel.textAlignment = .center
-        titleLabel.numberOfLines = 2
+        titleLabel.numberOfLines = 1
         
         view.addSubview(titleLabel)
         
@@ -117,7 +117,7 @@ final class CustomAlertController: UIViewController {
     func setupCancelButton() {
         let attributedString = NSAttributedString(string: "Отменить", attributes: [
             NSAttributedString.Key.foregroundColor: UIColor.black,
-            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17) // Change the font size as needed
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)
         ])
         cancelButton.setAttributedTitle(attributedString, for: .normal)
         
@@ -125,10 +125,10 @@ final class CustomAlertController: UIViewController {
         
         cancelButton.snp.makeConstraints { make in
             make.top.equalTo(messageLabel.snp.bottom).offset(20)
-            make.leading.equalToSuperview().offset(20)
-            make.bottom.equalToSuperview().offset(-20)
+            make.leading.equalToSuperview().offset(10)
+            make.bottom.equalToSuperview().offset(-10)
             make.width.equalTo(100)
-            make.height.equalTo(40)
+            make.height.equalTo(30)
         }
         
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
@@ -150,13 +150,12 @@ final class CustomAlertController: UIViewController {
     
     func setupDeleteButton() {
         deleteButton.titleLabel?.text = "Удалить"
-        deleteButton.setTitleColor(.red, for: .normal)
         view.addSubview(deleteButton)
         
         deleteButton.snp.makeConstraints { make in
             make.top.equalTo(messageLabel.snp.bottom).offset(20)
-            make.trailing.equalToSuperview().offset(-20)
-            make.bottom.equalToSuperview().offset(-20)
+            make.trailing.equalToSuperview().offset(-10)
+            make.bottom.equalToSuperview().offset(-10)
             make.width.equalTo(150)
             make.height.equalTo(40)
         }

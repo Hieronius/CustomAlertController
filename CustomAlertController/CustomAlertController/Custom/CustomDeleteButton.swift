@@ -19,6 +19,7 @@ class CustomDeleteButton: UIButton {
         self.actionSelector = actionSelector
         configureLayout()
         customTitleLabel.text = title
+        customTitleLabel.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         customTitleLabel.textColor = .red
     }
     
