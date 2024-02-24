@@ -37,20 +37,14 @@ class CustomDeleteButton: UIButton {
         addSubview(stackView)
         
         stackView.snp.makeConstraints { make in
-        make.center.equalToSuperview() // Center the stack view within the button
-            
-        make.leading.equalTo(customTitleLabel.snp.leading) // Align the leading edge of the stack view with the custom title label
+        make.center.equalToSuperview()
+        make.leading.equalTo(customTitleLabel.snp.leading)
     }
         
-         // activityIndicator.startAnimating()
-        
-        
-        
-        // Add a tap gesture recognizer to the deleteButton
         let tapGesture = UITapGestureRecognizer(target: targetObject, action: actionSelector)
         addGestureRecognizer(tapGesture)
         isUserInteractionEnabled = true
-        
     }
+    
 }
 

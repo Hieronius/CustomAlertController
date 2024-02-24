@@ -16,9 +16,8 @@ final class CustomAlertController: UIViewController {
     let cancelButton = UIButton()
     let verticalSeparatorLine = UIView()
     let horizontalSeparatorLine = UIView()
-    var deleteButton: CustomDeleteButton!
-    
     let activityIndicator = UIActivityIndicatorView(style: .medium)
+    var deleteButton: CustomDeleteButton!
     
     // MARK: - Initializers
     
@@ -51,7 +50,6 @@ final class CustomAlertController: UIViewController {
         setupCancelButton()
         setupVerticalSeparatorLine()
         setupDeleteButton()
-        // setupActivityIndicator()
     }
     
     func setupAlertController() {
@@ -165,15 +163,6 @@ final class CustomAlertController: UIViewController {
             make.trailing.equalTo(deleteButton.customTitleLabel.snp.leading).offset(-10)
         }
 
-    }
-    
-    func setupActivityIndicator() {
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.color = .gray
-        deleteButton.activityIndicator.backgroundColor = .red
-        
-        // deleteButton.activityIndicator
-        
     }
     
     // MARK: - Actions

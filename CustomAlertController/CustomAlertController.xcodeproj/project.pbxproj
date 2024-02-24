@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DD1985972B87067500D54DD9 /* CustomDeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1985962B87067500D54DD9 /* CustomDeleteButton.swift */; };
-		DDA227102B882FBD002D5C0F /* UIViewController + UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2270F2B882FBD002D5C0F /* UIViewController + UIAlertController.swift */; };
 		DDA5D91C2B8627310049CD0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5D91B2B8627310049CD0D /* AppDelegate.swift */; };
 		DDA5D91E2B8627310049CD0D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5D91D2B8627310049CD0D /* SceneDelegate.swift */; };
 		DDA5D9202B8627310049CD0D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA5D91F2B8627310049CD0D /* MainViewController.swift */; };
@@ -21,7 +20,6 @@
 
 /* Begin PBXFileReference section */
 		DD1985962B87067500D54DD9 /* CustomDeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDeleteButton.swift; sourceTree = "<group>"; };
-		DDA2270F2B882FBD002D5C0F /* UIViewController + UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + UIAlertController.swift"; sourceTree = "<group>"; };
 		DDA5D9182B8627310049CD0D /* CustomAlertController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomAlertController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDA5D91B2B8627310049CD0D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDA5D91D2B8627310049CD0D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +46,6 @@
 		DDA2270E2B882F66002D5C0F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DDA2270F2B882FBD002D5C0F /* UIViewController + UIAlertController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -224,7 +221,6 @@
 				DDB7BF662B86E6F7009CF825 /* CustomAlertController.swift in Sources */,
 				DDA5D91C2B8627310049CD0D /* AppDelegate.swift in Sources */,
 				DDA5D91E2B8627310049CD0D /* SceneDelegate.swift in Sources */,
-				DDA227102B882FBD002D5C0F /* UIViewController + UIAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
