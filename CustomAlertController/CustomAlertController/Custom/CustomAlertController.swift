@@ -121,7 +121,7 @@ final class CustomAlertController: UIViewController {
         }
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     
     @objc func cancelButtonTapped() {
         delegate?.customAlertDidTapCancelButton()

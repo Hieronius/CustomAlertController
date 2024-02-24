@@ -128,7 +128,7 @@ final class MainView: UIView {
         customAlertController.view.isHidden = true
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     
     @objc func alertButtonTapped() {
         delegate?.mainViewDidTapAlertButton()
