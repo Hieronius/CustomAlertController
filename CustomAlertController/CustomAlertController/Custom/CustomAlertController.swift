@@ -42,11 +42,11 @@ final class CustomAlertController: UIViewController {
     
     func setupViews() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-         setupTitleLable()
+        setupTitleLable()
         setupMessageLabel()
         setupCancelButton()
-         setupDeleteButton()
-          setupActivityIndicator()
+        setupDeleteButton()
+        setupActivityIndicator()
     }
     
     func setupTitleLable() {

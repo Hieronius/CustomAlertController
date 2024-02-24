@@ -3,7 +3,7 @@ import UIKit
 class MainViewController: GenericViewController<MainView>, MainViewDelegate, CustomAlertControllerDelegate {
     
     // MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         rootView.delegate = self
