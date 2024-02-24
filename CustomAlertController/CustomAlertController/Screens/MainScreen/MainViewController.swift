@@ -12,10 +12,6 @@ class MainViewController: GenericViewController<MainView>, MainViewDelegate, Cus
     
     // MARK: - Public Methods
     
-    func customDeleteButtonDidTapDeleteButton() {
-        print("Delete button pressed from CustomDeleteButton")
-    }
-    
     func mainViewDidTapAlertButton() {
         rootView.customAlertController.view.isHidden = false
         rootView.alertButton.isHidden = true
