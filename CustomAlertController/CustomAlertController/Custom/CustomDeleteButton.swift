@@ -12,7 +12,7 @@ class CustomDeleteButton: UIButton {
     var actionSelector: Selector?
     
     // MARK: - Initialization
-
+    
     init(title: String, targetObject: Any?, actionSelector: Selector) {
         super.init(frame: .zero)
         self.targetObject = targetObject
@@ -21,19 +21,19 @@ class CustomDeleteButton: UIButton {
         customTitleLabel.text = title
         customTitleLabel.textColor = .red
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Public Methods
-
+    
     func configureLayout() {
         let spacer = UIView()
         spacer.setContentHuggingPriority(.defaultLow, for: .horizontal)
         spacer.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
-         let stackView = UIStackView(arrangedSubviews: [activityIndicator, spacer, customTitleLabel])
+        let stackView = UIStackView(arrangedSubviews: [activityIndicator, spacer, customTitleLabel])
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .fillEqually
@@ -51,13 +51,5 @@ class CustomDeleteButton: UIButton {
         isUserInteractionEnabled = true
         
     }
-    
-    // MARK: - Actions
-    
-    @objc func deleteButtonTapped() {
-            // Handle the delete button tap event
-            print("Delete button tapped")
-        }
-    
 }
 

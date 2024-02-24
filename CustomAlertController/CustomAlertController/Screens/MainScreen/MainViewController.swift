@@ -3,27 +3,21 @@ import UIKit
 class MainViewController: GenericViewController<MainView>, MainViewDelegate, CustomAlertControllerDelegate {
     
     // MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         rootView.delegate = self
-        rootView.customAlertController.delegate = self
     }
     
     // MARK: - Public Methods
     
-    func customDeleteButtonDidTapDeleteButton() {
-        print("Delete button pressed from CustomDeleteButton")
-    }
-    
     func mainViewDidTapAlertButton() {
-        rootView.customAlertController.view.isHidden = false
-        rootView.alertButton.isHidden = true
-        print("Button has been tapped")
+        rootView.presentCustomAlert()
+        rootView.alertButton.isHidden = false
+        print("Alert controller has been presented")
         
-        // implement smooth animation of customAlert
-        // Probably should fix constraints
-        // present(CustomAlertController(), animated: true)
+        rootView.customAlertController.delegate = self
+        present(rootView.customAlertController, animated: true)
     }
     
     func mainViewDidTapTestAlertButton() {
@@ -31,27 +25,20 @@ class MainViewController: GenericViewController<MainView>, MainViewDelegate, Cus
     }
     
     func customAlertDidTapCancelButton() {
-        rootView.alertButton.isHidden = false
-        rootView.customAlertController.view.isHidden = true
-        print("cancel button has been pressed")
-        
-        // implement smooth animation of customAlert
-        // Probably should fix constraints
-        // dismiss(animated: true, completion: nil)
+        self.rootView.alertButton.isHidden = false
+        self.rootView.isCustomAlertVisible = false
+        dismiss(animated: true) {
+            self.rootView.customAlertController.view.removeFromSuperview()
+        }
     }
     
     func mainViewDidTapCustomDeleteButton() {
-        
-        print("delete button from main VC has been pressed")
         rootView.customAlertController.cancelButton.isEnabled = false
         rootView.customAlertController.deleteButton.isEnabled = false
         rootView.customAlertController.deleteButton.setTitleColor(.gray, for: .normal)
         
         
         rootView.customAlertController.deleteButton.activityIndicator.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { self.rootView.customAlertController.activityIndicator.stopAnimating()
-            self.dismiss(animated: true, completion: nil)
-        }
     }
     
 }
