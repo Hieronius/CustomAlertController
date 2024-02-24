@@ -38,7 +38,7 @@ final class CustomAlertController: UIViewController {
         setupViews()
     }
     
-    
+    // MARK: - Public Methods
     
     func setupViews() {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
@@ -48,7 +48,6 @@ final class CustomAlertController: UIViewController {
          setupDeleteButton()
           setupActivityIndicator()
     }
-    
     
     func setupTitleLable() {
         titleLabel.text = "Удалить папку \"Непрочитанные\"?"
@@ -121,6 +120,8 @@ final class CustomAlertController: UIViewController {
             make.centerX.equalToSuperview()
         }
     }
+    
+    // MARK: Actions
     
     @objc func cancelButtonTapped() {
         delegate?.customAlertDidTapCancelButton()

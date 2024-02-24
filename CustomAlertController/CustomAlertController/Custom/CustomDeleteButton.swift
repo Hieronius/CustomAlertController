@@ -6,6 +6,7 @@ class CustomDeleteButton: UIButton {
     // MARK: - Public Properties
     
     lazy var activityIndicator = UIActivityIndicatorView(style: .medium)
+    
     let customTitleLabel = UILabel()
     var targetObject: Any?
     var actionSelector: Selector?
@@ -25,7 +26,7 @@ class CustomDeleteButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Methods
+    // MARK: - Public Methods
 
     func configureLayout() {
         let spacer = UIView()
@@ -50,6 +51,8 @@ class CustomDeleteButton: UIButton {
         isUserInteractionEnabled = true
         
     }
+    
+    // MARK: - Actions
     
     @objc func deleteButtonTapped() {
             // Handle the delete button tap event

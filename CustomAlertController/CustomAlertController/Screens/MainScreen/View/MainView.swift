@@ -33,6 +33,8 @@ final class MainView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Public Methods
+    
     func getTestAlertButton() {
         testAlertButton = UIButton()
         testAlertButton.setTitle("Get Alert", for: .normal)
@@ -125,6 +127,8 @@ final class MainView: UIView {
         
         customAlertController.view.isHidden = true
     }
+    
+    // MARK: Actions
     
     @objc func alertButtonTapped() {
         delegate?.mainViewDidTapAlertButton()
