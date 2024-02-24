@@ -36,7 +36,7 @@ final class CustomAlertController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupAlertControllerSize()
+//        setupAlertControllerSize()
         setupViews()
         
     }
@@ -44,7 +44,7 @@ final class CustomAlertController: UIViewController {
     // MARK: - Public Methods
     
     func setupViews() {
-        setupAlertControllerAppearance()
+        setupAlertController()
         setupTitleLable()
         setupMessageLabel()
         setupHorizontalSeparatorLine()
@@ -54,17 +54,13 @@ final class CustomAlertController: UIViewController {
         setupActivityIndicator()
     }
     
-    // Remove code from initialization and call this func instead
-    func setupAlertControllerSize() {
+    func setupAlertController() {
         let screenWidth = UIScreen.main.bounds.width
         let alertWidth = screenWidth - 40
         let alertHeight = 200
         
         view.frame = CGRect(x: 20, y: (Int(UIScreen.main.bounds.height) - alertHeight) / 2, width: Int(alertWidth), height: alertHeight)
-    }
-    
-    // Remove code from initialization and call this func instead
-    func setupAlertControllerAppearance() {
+        
         view.backgroundColor = UIColor.white.withAlphaComponent(0.8)
         view.layer.cornerRadius = 13
         view.layer.masksToBounds = true
@@ -127,7 +123,7 @@ final class CustomAlertController: UIViewController {
             make.top.equalTo(messageLabel.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().offset(-10)
-            make.width.equalTo(100)
+            make.width.equalTo(130)
             make.height.equalTo(30)
         }
         
@@ -141,11 +137,12 @@ final class CustomAlertController: UIViewController {
         view.addSubview(separatorLine)
         
         separatorLine.snp.makeConstraints { make in
-            make.top.equalTo(cancelButton.snp.top)
-            make.bottom.equalTo(cancelButton.snp.bottom)
+            make.top.equalTo(cancelButton.snp.top).offset(-10)
+            make.bottom.equalTo(cancelButton.snp.bottom).offset(10)
             make.leading.equalTo(cancelButton.snp.trailing)
             make.width.equalTo(1)
         }
+        
     }
     
     func setupDeleteButton() {
@@ -153,11 +150,11 @@ final class CustomAlertController: UIViewController {
         view.addSubview(deleteButton)
         
         deleteButton.snp.makeConstraints { make in
-            make.top.equalTo(messageLabel.snp.bottom).offset(20)
-            make.trailing.equalToSuperview().offset(-10)
+            make.top.equalTo(cancelButton.snp.top)
+            make.trailing.equalToSuperview().offset(-20)
             make.bottom.equalToSuperview().offset(-10)
-            make.width.equalTo(150)
-            make.height.equalTo(40)
+            make.width.equalTo(130)
+            make.height.equalTo(30)
         }
     }
     
@@ -168,7 +165,7 @@ final class CustomAlertController: UIViewController {
         deleteButton.addSubview(activityIndicator)
         
         activityIndicator.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+             make.centerX.equalToSuperview()
         }
     }
     
