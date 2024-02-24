@@ -103,7 +103,7 @@ final class CustomAlertController: UIViewController {
     
     func setupHorizontalSeparatorLine() {
         let separatorLine = UIView()
-        separatorLine.backgroundColor = .lightGray
+        separatorLine.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         
         view.addSubview(separatorLine)
         
@@ -136,7 +136,7 @@ final class CustomAlertController: UIViewController {
     
     func setupVerticalSeparatorLine() {
         let separatorLine = UIView()
-        separatorLine.backgroundColor = .lightGray
+        separatorLine.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         
         view.addSubview(separatorLine)
         
