@@ -12,17 +12,11 @@ class MainViewController: GenericViewController<MainView>, MainViewDelegate, Cus
     // MARK: - Public Methods
     
     func mainViewDidTapAlertButton() {
-        
-        rootView.isCustomAlertVisible = true
         present(rootView.customAlertController, animated: true, completion: nil)
         print("Alert controller has been presented")
         
         rootView.customAlertController.delegate = self
-         rootView.alertButton.isHidden = true
-        
-        // implement smooth animation of customAlert
-        // Probably should fix constraints
-        // present(CustomAlertController(), animated: true)
+        rootView.alertButton.isHidden = true
     }
     
     func mainViewDidTapTestAlertButton() {
@@ -31,7 +25,6 @@ class MainViewController: GenericViewController<MainView>, MainViewDelegate, Cus
     
     func customAlertDidTapCancelButton() {
          rootView.alertButton.isHidden = false
-        // rootView.customAlertController.view.isHidden = true
         print("cancel button has been pressed")
         
         dismiss(animated: true, completion: nil)
