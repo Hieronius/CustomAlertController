@@ -19,6 +19,8 @@ final class MainView: UIView {
     
     var customAlertController: CustomAlertController!
     
+    var isCustomAlertVisible = false
+    
     // MARK: - Initialization
     
     init() {
@@ -26,7 +28,8 @@ final class MainView: UIView {
         self.backgroundColor = .white
         getTestAlertButton()
         getAlertButton()
-        setupCustomAlertController()
+        customAlertController = CustomAlertController(deleteButton: CustomDeleteButton(title: "Удалить", targetObject: self, actionSelector: #selector(customDeleteButtonTapped)))
+        presentCustomAlert()
     }
     
     required init(coder: NSCoder) {
@@ -35,6 +38,27 @@ final class MainView: UIView {
     
     // MARK: - Public Methods
     
+    func presentCustomAlert() {
+        guard let customAlertController = customAlertController else {
+            print("Custom alert controller is not initialized")
+            return
+        }
+        
+        if !isCustomAlertVisible {
+            guard let window = UIApplication.shared.windows.first else {
+                print("No window found")
+                return
+            }
+            
+            window.addSubview(customAlertController.view)
+            customAlertController.view.snp.makeConstraints { make in
+                make.center.equalToSuperview()
+                make.width.equalToSuperview().multipliedBy(0.8)
+            }
+            isCustomAlertVisible = true
+        }
+    }
+    
     func getTestAlertButton() {
         testAlertButton = UIButton()
         testAlertButton.setTitle("Get Alert", for: .normal)
@@ -42,7 +66,7 @@ final class MainView: UIView {
         testAlertButton.backgroundColor = .black
         testAlertButton.titleLabel?.font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
         
-        self.addSubview(testAlertButton)
+         self.addSubview(testAlertButton)
         
         // get size of the screen dynamically
         guard let window = UIApplication.shared.windows.first else {
@@ -105,27 +129,6 @@ final class MainView: UIView {
         }
         
         alertButton.addTarget(self, action: #selector(alertButtonTapped), for: .touchUpInside)
-    }
-    
-    private func setupCustomAlertController() {
-        customAlertController = CustomAlertController(deleteButton: CustomDeleteButton(title: "Удалить", targetObject: self, actionSelector: #selector(customDeleteButtonTapped)))
-        
-        self.addSubview(customAlertController.view)
-        
-        // get size of the screen dynamically
-        guard let window = UIApplication.shared.windows.first else {
-            fatalError("No window found")
-        }
-        
-        let screenCenterX = window.bounds.midX
-        let screenCenterY = window.bounds.midY
-        
-        customAlertController.view.snp.makeConstraints { make in
-            make.centerX.equalTo(screenCenterX)
-            make.centerY.equalTo(screenCenterY)
-        }
-        
-        customAlertController.view.isHidden = true
     }
     
     // MARK: - Actions
