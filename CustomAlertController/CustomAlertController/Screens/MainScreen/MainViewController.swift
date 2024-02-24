@@ -35,10 +35,17 @@ class MainViewController: GenericViewController<MainView>, MainViewDelegate, Cus
     }
     
     func mainViewDidTapCustomDeleteButton() {
+        
+        let attributedString = NSAttributedString(string: "Отменить", attributes: [
+            NSAttributedString.Key.foregroundColor: UIColor.gray,
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)
+        ])
+        
+        rootView.customAlertController.cancelButton.setAttributedTitle(attributedString, for: .disabled)
+        rootView.customAlertController.deleteButton.customTitleLabel.textColor = .gray
+        
         rootView.customAlertController.cancelButton.isEnabled = false
         rootView.customAlertController.deleteButton.isEnabled = false
-        rootView.customAlertController.deleteButton.setTitleColor(.gray, for: .normal)
-        
         
         rootView.customAlertController.deleteButton.activityIndicator.startAnimating()
     }
