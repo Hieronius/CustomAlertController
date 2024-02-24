@@ -28,7 +28,7 @@ final class MainView: UIView {
         self.backgroundColor = .white
         getTestAlertButton()
         getAlertButton()
-        customAlertController = CustomAlertController(deleteButton: CustomDeleteButton(title: "Удалить", targetObject: self, actionSelector: #selector(customDeleteButtonTapped)))
+        customAlertController = CustomAlertController(deleteButton: CustomDeleteButton(title: "    Удалить", targetObject: self, actionSelector: #selector(customDeleteButtonTapped)))
          presentCustomAlert()
     }
     
