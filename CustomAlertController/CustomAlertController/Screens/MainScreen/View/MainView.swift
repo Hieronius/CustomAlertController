@@ -29,7 +29,7 @@ final class MainView: UIView {
         getTestAlertButton()
         getAlertButton()
         customAlertController = CustomAlertController(deleteButton: CustomDeleteButton(title: "Удалить", targetObject: self, actionSelector: #selector(customDeleteButtonTapped)))
-        presentCustomAlert()
+         presentCustomAlert()
     }
     
     required init(coder: NSCoder) {
@@ -51,6 +51,7 @@ final class MainView: UIView {
             }
             
             window.addSubview(customAlertController.view)
+            
             customAlertController.view.snp.makeConstraints { make in
                 make.center.equalToSuperview()
                 make.width.equalToSuperview().multipliedBy(0.8)
@@ -143,6 +144,5 @@ final class MainView: UIView {
     
     @objc func customDeleteButtonTapped() {
         delegate?.mainViewDidTapCustomDeleteButton()
-        print("Delete button from main view has been pressed")
     }
 }
