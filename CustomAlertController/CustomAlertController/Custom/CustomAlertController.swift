@@ -41,7 +41,7 @@ final class CustomAlertController: UIViewController {
     // MARK: - Public Methods
     
     func setupViews() {
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         setupTitleLable()
         setupMessageLabel()
         setupCancelButton()
@@ -66,7 +66,7 @@ final class CustomAlertController: UIViewController {
     func setupMessageLabel() {
         messageLabel.text = "Это не затронет чаты, которые в ней находятся"
         messageLabel.font = UIFont.systemFont(ofSize: 14)
-        messageLabel.textColor = .black
+        messageLabel.textColor = .gray
         messageLabel.textAlignment = .center
         messageLabel.numberOfLines = 0
         
@@ -80,8 +80,11 @@ final class CustomAlertController: UIViewController {
     }
     
     func setupCancelButton() {
-        cancelButton.setTitle("Отменить", for: .normal)
-        cancelButton.setTitleColor(.darkGray, for: .normal)
+        let attributedString = NSAttributedString(string: "Отменить", attributes: [
+            NSAttributedString.Key.foregroundColor: UIColor.black,
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17) // Change the font size as needed
+        ])
+        cancelButton.setAttributedTitle(attributedString, for: .normal)
         
         view.addSubview(cancelButton)
         
