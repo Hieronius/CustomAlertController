@@ -35,18 +35,39 @@ final class CustomAlertController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupAlertControllerSize()
         setupViews()
+        
     }
     
     // MARK: - Public Methods
     
     func setupViews() {
-        view.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        setupAlertControllerAppearance()
         setupTitleLable()
         setupMessageLabel()
+        setupHorizontalSeparatorLine()
         setupCancelButton()
+        setupVerticalSeparatorLine()
         setupDeleteButton()
         setupActivityIndicator()
+    }
+    
+    // Remove code from initialization and call this func instead
+    func setupAlertControllerSize() {
+        let screenWidth = UIScreen.main.bounds.width
+        let alertWidth = screenWidth - 40
+        let alertHeight = 200
+        
+        view.frame = CGRect(x: 20, y: (Int(UIScreen.main.bounds.height) - alertHeight) / 2, width: Int(alertWidth), height: alertHeight)
+    }
+    
+    // Remove code from initialization and call this func instead
+    func setupAlertControllerAppearance() {
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 13
+        view.layer.masksToBounds = true
     }
     
     func setupTitleLable() {
@@ -54,6 +75,7 @@ final class CustomAlertController: UIViewController {
         titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         titleLabel.textColor = .black
         titleLabel.textAlignment = .center
+        titleLabel.numberOfLines = 2
         
         view.addSubview(titleLabel)
         
@@ -68,7 +90,7 @@ final class CustomAlertController: UIViewController {
         messageLabel.font = UIFont.systemFont(ofSize: 14)
         messageLabel.textColor = .gray
         messageLabel.textAlignment = .center
-        messageLabel.numberOfLines = 0
+        messageLabel.numberOfLines = 2
         
         view.addSubview(messageLabel)
         
@@ -76,6 +98,19 @@ final class CustomAlertController: UIViewController {
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
+        }
+    }
+    
+    func setupHorizontalSeparatorLine() {
+        let separatorLine = UIView()
+        separatorLine.backgroundColor = .lightGray
+        
+        view.addSubview(separatorLine)
+        
+        separatorLine.snp.makeConstraints { make in
+            make.top.equalTo(messageLabel.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview()
+            make.height.equalTo(1)
         }
     }
     
@@ -99,6 +134,20 @@ final class CustomAlertController: UIViewController {
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
     }
     
+    func setupVerticalSeparatorLine() {
+        let separatorLine = UIView()
+        separatorLine.backgroundColor = .lightGray
+        
+        view.addSubview(separatorLine)
+        
+        separatorLine.snp.makeConstraints { make in
+            make.top.equalTo(cancelButton.snp.top)
+            make.bottom.equalTo(cancelButton.snp.bottom)
+            make.leading.equalTo(cancelButton.snp.trailing)
+            make.width.equalTo(1)
+        }
+    }
+    
     func setupDeleteButton() {
         deleteButton.titleLabel?.text = "Удалить"
         deleteButton.setTitleColor(.red, for: .normal)
@@ -108,7 +157,7 @@ final class CustomAlertController: UIViewController {
             make.top.equalTo(messageLabel.snp.bottom).offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.bottom.equalToSuperview().offset(-20)
-            make.width.equalTo(100)
+            make.width.equalTo(150)
             make.height.equalTo(40)
         }
     }
