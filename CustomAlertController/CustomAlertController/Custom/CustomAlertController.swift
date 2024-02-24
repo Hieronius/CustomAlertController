@@ -162,7 +162,7 @@ final class CustomAlertController: UIViewController {
         deleteButton.activityIndicator.snp.makeConstraints { make in
             make.trailing.equalTo(deleteButton.customTitleLabel.snp.leading).offset(-10)
         }
-
+        
     }
     
     // MARK: - Actions

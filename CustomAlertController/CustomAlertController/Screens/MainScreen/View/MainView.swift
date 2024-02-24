@@ -18,7 +18,7 @@ final class MainView: UIView {
     
     var isCustomAlertVisible = false
     
-    // MARK: - Initialization
+    // MARK: - Initializers
     
     init() {
         super.init(frame: .zero)
