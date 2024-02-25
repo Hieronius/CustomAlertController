@@ -15,6 +15,7 @@ https://github.com/Hieronius/CustomAlertController/assets/41345907/f058d97e-f8cf
 - MVC
 - SnapKit
 - UIKit
+- Delegation
 
 ## ❗️Info
 - iOS Deployment Target - 13.0
