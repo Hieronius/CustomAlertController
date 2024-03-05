@@ -7,10 +7,6 @@ Custom Alert Controller has been made as additional UIViewController and contain
 
 When delete button is pressed the buttons on alert screen should be disabled and activity indicator should be called.
 
-## 📺Demo
-
-https://github.com/Hieronius/CustomAlertController/assets/41345907/f058d97e-f8cf-4cb5-a5d7-93ea9399c1db
-
 ## 🛠Technologies
 - MVC
 - SnapKit
@@ -20,6 +16,10 @@ https://github.com/Hieronius/CustomAlertController/assets/41345907/f058d97e-f8cf
 ## ❗️Info
 - iOS Deployment Target - 13.0
 - Tested on iphone 6s with ios 15.2
+
+## 📺Demo
+
+https://github.com/Hieronius/CustomAlertController/assets/41345907/f058d97e-f8cf-4cb5-a5d7-93ea9399c1db
 
 ## 📌ToDo
 - Implement both white and black thems to the app
